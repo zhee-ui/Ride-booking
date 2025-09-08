@@ -10,6 +10,7 @@ export default function Card({
   price,
   image,
   onContinue,
+  
 }) {
   return (
     <div>
@@ -44,9 +45,15 @@ export default function Card({
             </div>
           </div>
           <div className="mt-3 md:mt-0 text-center flex flex-row items-center justify-between p-2">
-            <p className="font-bold text-3xl">${price}</p>
+            <p className="font-bold text-3xl">{price}</p>
             <button
-              onClick={onContinue}
+              onClick={() =>
+                onContinue({
+                  title,
+                  image,
+                  fare: `${price}`,
+                })
+              }
               className="bg-black text-white px-4 py-2 rounded-lg mt-2"
             >
               Continue
