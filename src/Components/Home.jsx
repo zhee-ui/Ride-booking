@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Car from "../Data.jsx/Car";
+import { GoogleMap } from "@react-google-maps/api";
 
 export default function Home() {
   const [tripType, setTripType] = useState("oneway");
@@ -7,7 +8,7 @@ export default function Home() {
 
   return (
     <div>
-      <div className="bg-white rounded-2xl shadow-lg mx-[30px] my-8 px-12 pt-[30px] h-[650px] w-[1000px]">
+      <div className="bg-white rounded-2xl shadow-lg mx-[30px] my-8 px-12 pt-[30px] w-[1000px] ">
         <section className="flex flex-row space-x-6 mb-6">
           <label className="flex items-center gap-2 cursor-pointer">
             <input
@@ -173,7 +174,7 @@ export default function Home() {
                  Show rides
          </button>
   
-        <div className="flex flex-row gap-4 mt-6">
+        <div className="flex flex-row gap-4 mt-6 py-4 ">
           <div className="flex flex-row gap-4">
             <p className="font-bold">Distance:</p>
             <span className="text-gray-400">76km / 47mi</span>
@@ -196,6 +197,9 @@ export default function Home() {
         Click on the show rides button after <br />
         selecting your ride details to show available <br /> rides
       </p>
+      <div>
+        <GoogleMap />
+      </div>
        {isOpen && (
       <div>
         <Car />

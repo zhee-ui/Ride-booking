@@ -3,7 +3,7 @@ import Booking from "../Components/Booking";
 import Card from "../Components/Card";
 
 export default function Car() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [selectedCar, setSelectedCar] = useState(null);
 
   return (
     <div className="flex flex-row gap-8">
@@ -15,9 +15,10 @@ export default function Car() {
           airPortTime="Airport domestic 60min, International 75 min"
           interCityTime="5 min"
           desc="Camry, Tesla, Kia, or Similar Vehicles"
-          price={527}
+          price="$527"
           image="/Car 1.png"
-          onContinue={() => setIsOpen(true)}
+          onContinue={(car) => setSelectedCar(car)}
+          
         />
         <Card
           title="Executive Sedan"
@@ -26,9 +27,10 @@ export default function Car() {
           airPortTime="Airport domestic 60min, International 75 min"
           interCityTime="5 min"
           desc="Continental or Similar Exec-Sedan"
-          price={527}
+          price="$527"
           image="/Car 2.png"
-          onContinue={() => setIsOpen(true)}
+          onContinue={(car) => setSelectedCar(car)}
+          
         />
         <Card
           title="Luxury Sedan"
@@ -37,9 +39,10 @@ export default function Car() {
           airPortTime="Airport domestic 60min, International 75 min"
           interCityTime="5 min"
           desc="S-Class or Similar Lux-Sedan"
-          price={527}
+          price="$527"
           image="/Car 3.png"
-          onContinue={() => setIsOpen(true)}
+          onContinue={(car) => setSelectedCar(car)}
+          
         />
         <Card
           title="Premium Minivan"
@@ -48,9 +51,10 @@ export default function Car() {
           airPortTime="Airport domestic 45 min, International 75 min"
           interCityTime="5 min"
           desc="Odyssey or Similar Minivans"
-          price={527}
+          price="$527"
           image="/Car 4.png"
-          onContinue={() => setIsOpen(true)}
+          onContinue={(car) => setSelectedCar(car)}
+        
         />
         <Card
           title="Executive SUV"
@@ -59,9 +63,10 @@ export default function Car() {
           airPortTime="Airport domestic 45 min, International 75 min"
           interCityTime="5 min"
           desc="Odyssey or Similar Minivans"
-          price={527}
+          price="$527"
           image="/Car 5.png"
-          onContinue={() => setIsOpen(true)}
+          onContinue={(car) => setSelectedCar(car)}
+          
         />
         <Card
           title="Luxury SUV"
@@ -70,16 +75,18 @@ export default function Car() {
           airPortTime="Airport domestic 45 min, International 75 min"
           interCityTime="5 min"
           desc="Escalade or Similar SUV"
-          price={527}
+          price="$527"
           image="/Car 6.png"
-          onContinue={() => setIsOpen(true)}
+          onContinue={(car) => setSelectedCar(car)}
+          
         />
       </div>
-      {isOpen && (
+      
         <div>
-          <Booking />
+          {<Booking car={selectedCar} />}
+          
         </div>
-      )}
+      
     </div>
   );
 }
