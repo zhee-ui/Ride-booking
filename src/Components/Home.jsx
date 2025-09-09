@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import Car from "../Data/Car";
-import Booking from "../Components/Booking";
+import TripDetailsStep from "./TripDetailsStep";
+import CarSelectionStep from "./CarSelectionStep";
+import BookingStep from "./BookingStep";
 import {
   GoogleMap,
   LoadScript,
