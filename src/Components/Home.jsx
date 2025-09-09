@@ -6,7 +6,7 @@ import BookingStep from "./BookingStep";
 export default function Home() {
   // Flow state management
   const [currentStep, setCurrentStep] = useState("tripDetails"); // tripDetails, carSelection, booking
-  
+
   // Trip details state
   const [tripType, setTripType] = useState("oneway");
   const [fromLocation, setFromLocation] = useState("");
@@ -15,10 +15,10 @@ export default function Home() {
   const [passengers, setPassengers] = useState("");
   const [departureDate, setDepartureDate] = useState(new Date().toISOString().slice(0, 16));
   const [returnDate, setReturnDate] = useState("");
-  
+
   // Selected car state
   const [selectedCar, setSelectedCar] = useState(null);
-  
+
   // Trip summary state
   const [tripSummary, setTripSummary] = useState({
     distance: "76km / 47 mi",
@@ -92,11 +92,11 @@ export default function Home() {
     };
 
     console.log("Booking submitted:", bookingData);
-    
+
     // Here you would typically send the data to your backend API
     // For now, we'll just show an alert
     alert("Booking submitted successfully! Check console for details.");
-    
+
     // You could also reset the form or redirect to a confirmation page
     // setCurrentStep("confirmation");
   };
@@ -123,17 +123,17 @@ export default function Home() {
           setReturnDate={setReturnDate}
           tripSummary={tripSummary}
           onShowRides={handleShowRides}
-          onBack={() => {}} // No back action for trip details
+          onBack={() => { }} // No back action for trip details
         />
       )}
-      
+
       {currentStep === "carSelection" && (
         <CarSelectionStep
           onCarSelect={handleCarSelect}
           onBack={handleBackToTripDetails}
         />
       )}
-      
+
       {currentStep === "booking" && (
         <BookingStep
           selectedCar={selectedCar}

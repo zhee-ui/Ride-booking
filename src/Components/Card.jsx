@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
 
-export default function Card({ car, onContinue,isShow, setIsShow }) {
+export default function Card({ car, onContinue, isShow, setIsShow }) {
 
   // const [isShow, setIsShow] = useState(false);
 
   return (
-     
+
     <div className="bg-white shadow rounded-xl flex flex-row w-[700px] h-[300px] p-4 justify-between">
       {/* Car Image */}
       <div className="flex items-center">
@@ -49,10 +49,10 @@ export default function Card({ car, onContinue,isShow, setIsShow }) {
         <div className="mt-3 flex flex-row items-center justify-between p-2">
           <p className="font-bold text-3xl">{car.price}</p>
           <button
-          onClick={() => {
-           setIsShow(!isShow);
-           onContinue();
-           }}
+            onClick={() => {
+              setIsShow(!isShow);
+              onContinue();
+            }}
             className="bg-black text-white px-4 py-2 rounded-lg mt-2"
           >
             Continue

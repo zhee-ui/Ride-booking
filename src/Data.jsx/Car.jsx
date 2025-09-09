@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "../Components/Card";
 
 const carDetails = [
@@ -65,6 +65,8 @@ const carDetails = [
 ];
 
 export default function Car({ onCarSelect }) {
+  const [isShow, setIsShow] = useState(false);
+
   const handleContinue = (car) => {
     if (onCarSelect) {
       onCarSelect(car);
@@ -76,15 +78,10 @@ export default function Car({ onCarSelect }) {
       {carDetails.map((car, idx) => (
         <Card
           key={car.title + idx}
-          title={car.title}
-          maxPeople={car.maxPeople}
-          maxLuggage={car.maxLuggage}
-          airPortTime={car.airPortTime}
-          interCityTime={car.interCityTime}
-          desc={car.desc}
-          price={car.price}
-          image={car.image}
+          car={car}
           onContinue={() => handleContinue(car)}
+          isShow={isShow}
+          setIsShow={setIsShow}
         />
       ))}
     </div>

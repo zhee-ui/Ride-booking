@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "../Components/Card";
 
 export default function Car({ onSelectCar }) {
+  const [isShow, setIsShow] = useState(false);
   const cars = [
     {
       title: "Premium Sedan",
@@ -68,7 +69,13 @@ export default function Car({ onSelectCar }) {
   return (
     <div className="space-y-6">
       {cars.map((car, index) => (
-        <Card key={index} car={car} onContinue={() => onSelectCar(car)} />
+        <Card
+          key={index}
+          car={car}
+          onContinue={() => onSelectCar(car)}
+          isShow={isShow}
+          setIsShow={setIsShow}
+        />
       ))}
     </div>
   );
